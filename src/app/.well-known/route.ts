@@ -1,9 +1,9 @@
 import { type NextRequest, NextResponse } from "next/server";
 
-import { env } from "../../env"; // Can't import from "~/env" or "src/env"
+import { IS_DEVELOPMENT } from "../../constants"; // Can't import from "~/constants" or "src/constants"
 
-export async function GET(request: NextRequest) {
-  if (env.NODE_ENV === "development") {
+export async function GET(_request: NextRequest) {
+  if (IS_DEVELOPMENT) {
     return NextResponse.json({ data: "development response data" });
   }
 
